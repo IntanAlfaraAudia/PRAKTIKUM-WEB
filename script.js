@@ -1,29 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Array keranjang untuk menyimpan item yang dipilih
     let cart = [];
 
-    // Pilih elemen DOM
     const cartSection = document.querySelector('#keranjang');
     const checkoutSection = document.querySelector('#checkout');
     const cartItemsContainers = document.querySelectorAll('.cart-items');
     const cartTotals = document.querySelectorAll('.cart-total');
-    const addToCartButtons = document.querySelectorAll('.btn-primary:not(#confirm-button)'); // Kecualikan tombol konfirmasi
+    const addToCartButtons = document.querySelectorAll('.btn-primary:not(#confirm-button)');
     const navLinks = document.querySelectorAll('nav a');
     const darkModeToggle = document.createElement('button');
     const header = document.querySelector('header');
     const checkoutForm = document.querySelector('#checkout-form');
     const confirmButton = document.querySelector('#confirm-button');
 
-    // Inisialisasi tombol toggle dark mode
     darkModeToggle.textContent = 'Toggle Dark Mode';
     darkModeToggle.className = 'btn btn-secondary';
     header.querySelector('.header-content').appendChild(darkModeToggle);
 
-    // Debugging: Periksa apakah formulir dan tombol ditemukan
     console.log('Checkout form:', checkoutForm);
     console.log('Confirm button:', confirmButton);
 
-    // Fungsi untuk memperbarui tampilan keranjang
     function updateCartDisplay() {
         if (cart.length === 0) {
             cartItemsContainers.forEach(container => {
@@ -44,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event listener untuk tombol Tambah ke Keranjang
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -60,19 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event listener untuk navigasi
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                window.location.href = href;
             }
         });
     });
 
-    // Event listener untuk toggle dark mode
     darkModeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         if (document.body.classList.contains('dark-mode')) {
@@ -106,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fungsi untuk menangani konfirmasi pesanan
     function handleCheckout() {
         const name = checkoutForm.querySelector('#nama').value;
         const email = checkoutForm.querySelector('#email').value;
@@ -124,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event listener untuk pengiriman formulir
     if (checkoutForm) {
         checkoutForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -135,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Checkout form not found');
     }
 
-    // Event listener tambahan untuk tombol konfirmasi (cadangan)
     if (confirmButton) {
         confirmButton.addEventListener('click', (e) => {
             e.preventDefault();

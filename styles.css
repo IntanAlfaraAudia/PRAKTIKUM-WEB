@@ -75,20 +75,20 @@ section h2 {
     font-weight: 600;
 }
 
-#home {
+#home, #login, #dashboard {
     background: linear-gradient(rgba(52,152,219,0.8), rgba(52,152,219,0.8)), url('/assets/home.webp') center/cover no-repeat;
     color: white;
     text-align: center;
     padding: 6rem 2rem;
 }
 
-#home h1 {
+#home h1, #login h2, #dashboard h2 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
 
-#home p {
+#home p, #login p, #dashboard p {
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto 1.5rem;
@@ -201,12 +201,12 @@ article {
     margin-bottom: 1rem;
 }
 
-#checkout form {
+#checkout form, #login form {
     max-width: 600px;
     margin: 0 auto;
 }
 
-#checkout form label {
+#checkout form label, #login form label {
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
@@ -215,7 +215,9 @@ article {
 
 #checkout form input[type="text"],
 #checkout form input[type="email"],
-#checkout form textarea {
+#checkout form textarea,
+#login form input[type="text"],
+#login form input[type="password"] {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
@@ -290,10 +292,10 @@ footer a:hover {
         flex-wrap: wrap;
         justify-content: center;
     }
-    #home h1 {
+    #home h1, #login h2, #dashboard h2 {
         font-size: 2.2rem;
     }
-    #home p {
+    #home p, #login p, #dashboard p {
         font-size: 1rem;
     }
     article {
@@ -311,7 +313,7 @@ body.dark-mode {
     color: #ffffff;
 }
 
-body.dark-mode #home {
+body.dark-mode #home, body.dark-mode #login, body.dark-mode #dashboard {
     background: linear-gradient(rgba(26, 37, 47, 0.8), rgba(26, 37, 47, 0.8)), url('/assets/home.webp') center/cover no-repeat;
 }
 
@@ -340,7 +342,9 @@ body.dark-mode .contact-item {
 }
 
 body.dark-mode #checkout form label,
+body.dark-mode #login form label,
 body.dark-mode #checkout form input,
+body.dark-mode #login form input,
 body.dark-mode #checkout form textarea,
 body.dark-mode #checkout form input[type="radio"] + label {
     color: #ffffff;
@@ -348,7 +352,9 @@ body.dark-mode #checkout form input[type="radio"] + label {
 
 body.dark-mode #checkout form input[type="text"],
 body.dark-mode #checkout form input[type="email"],
-body.dark-mode #checkout form textarea {
+body.dark-mode #checkout form textarea,
+body.dark-mode #login form input[type="text"],
+body.dark-mode #login form input[type="password"] {
     background-color: #333;
     border-color: #555;
     color: #ffffff;

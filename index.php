@@ -1,17 +1,20 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ALFARADA Marketplace - Temukan gelang elegan, modern, dan handcrafted untuk melengkapi gaya Anda.">
-  <title>ALFARADA - Marketplace Gelang Fashion</title>
+  <meta name="description" content="JewelryBaru Marketplace - Temukan gelang elegan, modern, dan handcrafted untuk melengkapi gaya Anda.">
+  <title>JewelryBaru - Marketplace Gelang Fashion</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <div class="container header-content">
       <div class="logo">
-        <h1>ALFARADA</h1>
+        <h1>JEWELRYBARU</h1>
       </div>
       <nav aria-label="Navigasi utama">
         <ul>
@@ -21,6 +24,12 @@
           <li><a href="#checkout">Checkout</a></li>
           <li><a href="#about">Tentang Kami</a></li>
           <li><a href="#contact">Kontak</a></li>
+          <li><a href="dashboard.php">Dashboard</a></li>
+          <?php if (isset($_SESSION['username'])): ?>
+            <li><a href="logout.php">Logout</a></li>
+          <?php else: ?>
+            <li><a href="login.php">Login</a></li>
+          <?php endif; ?>
         </ul>
       </nav>
     </div>
@@ -29,9 +38,9 @@
   <main>
     <section id="home" class="text-center">
       <div class="container">
-        <h1>Welcome to ALFARADA Marketplace</h1>
+        <h1>Welcome to JewelryBaru Marketplace</h1>
         <p class="mb-2">Gelang memiliki kekuatan untuk menyempurnakan gaya dan menambah sentuhan elegan pada setiap penampilanmu.</p>
-        <p class="mb-4">Koleksi gelang Alfarada dirancang dengan pilihan logam dan batu berharga, dibuat untuk menemani momen berharga dalam hidupmu.</p>
+        <p class="mb-4">Koleksi gelang JewelryBaru dirancang dengan pilihan logam dan batu berharga, dibuat untuk menemani momen berharga dalam hidupmu.</p>
         <a href="#collections" class="btn btn-primary" aria-label="Jelajahi koleksi gelang">Jelajahi Koleksi</a>
       </div>
     </section>
@@ -317,8 +326,8 @@
 
     <section id="about">
       <div class="container text-center">
-        <h2>Tentang ALFARADA</h2>
-        <p class="mb-4">ALFARADA adalah marketplace gelang fashion yang menyajikan berbagai gaya gelang dari perajin lokal dan brand independen, dengan pilihan yang bisa disesuaikan sesuai gayamu.</p>
+        <h2>Tentang JewelryBaru</h2>
+        <p class="mb-4">JewelryBaru adalah marketplace gelang fashion yang menyajikan berbagai gaya gelang dari perajin lokal dan brand independen, dengan pilihan yang bisa disesuaikan sesuai gayamu.</p>
         <a href="#contact" class="btn btn-secondary" aria-label="Hubungi kami">Hubungi Kami</a>
       </div>
     </section>
@@ -329,15 +338,15 @@
         <div class="contact-info">
           <div class="contact-item">
             <strong>Email</strong><br>
-            <a href="mailto:alfarada@gmail.com" aria-label="Kirim email ke alfarada">alfarada@gmail.com</a>
+            <a href="mailto:jewelrybaru@gmail.com" aria-label="Kirim email ke JewelryBaru">jewelrybaru@gmail.com</a>
           </div>
           <div class="contact-item">
             <strong>Instagram</strong><br>
-            <p>@alfarada.jewelry</p>
+            <a href="https://www.instagram.com/jewelrybaru.jewelry" target="_blank" rel="noopener" aria-label="Kunjungi Instagram JewelryBaru">@jewelrybaru.jewelry</a>
           </div>
           <div class="contact-item">
             <strong>Kontak</strong><br>
-            <p>085651197947</p>
+            <a href="tel:+6285651197947" aria-label="Hubungi nomor telepon JewelryBaru">085651197947</a>
           </div>
         </div>
       </div>
@@ -346,7 +355,7 @@
 
   <footer>
     <div class="container text-center">
-      <p>&copy; 2025 Alfarada Marketplace. All rights reserved.</p>
+      <p>&copy; 2025 JewelryBaru Marketplace. All rights reserved.</p>
       <p>Referensi desain: <a href="https://www.glamira.co.id/bracelets/" target="_blank" rel="noopener" aria-label="Kunjungi Glamira Bracelets">Glamira Bracelets</a></p>
     </div>
   </footer>
@@ -354,3 +363,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+<?php
+
+?>
